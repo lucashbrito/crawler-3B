@@ -1,4 +1,4 @@
-import {Get, Param, Controller, Body} from '@nestjs/common';
+import {Get, Param, Controller, Body, Post } from '@nestjs/common';
 import { CEIService } from './cei.service';
 import { WalletInterface } from './cei.interface';
 
@@ -12,17 +12,17 @@ import {
 export class CEIController {
   constructor(private readonly CEIService: CEIService) {}
   
-  @Get('wallet')
+  @Post('wallet')
   async getWallet(@Body() body): Promise<any> {
     return await this.CEIService.getWallet(body.cpf, body.password, body.date);
   }
 
-  @Get('dividends')
+  @Post('dividends')
   async dividends(@Body() body): Promise<any> {
     return await this.CEIService.getDividends(body.cpf, body.password);
   }
 
-  @Get('stockHistory')
+  @Post('stockHistory')
   async getStockHistory(@Body() body): Promise<any> {
     return await this.CEIService.getStockHistory(body.cpf, body.password, body.startDate, body.endDate);
   }
