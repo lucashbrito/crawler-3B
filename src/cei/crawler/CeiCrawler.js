@@ -7,7 +7,7 @@ const PuppeteerUtils = require('./PuppeteerUtils');
 const { CeiCrawlerError, CeiErrorTypes } = require('./CeiCrawlerError')
 
 class CeiCrawler {
-
+    
     /** @type {boolean} */
     _isLogged = false;
 
@@ -49,7 +49,7 @@ class CeiCrawler {
         if (this._isLogged) return;
 
         if (this._browser == null)
-            this._browser = await puppeteer.launch(this.options.puppeteerLaunch);
+            this._browser = await puppeteer.launch(this.options.puppeteerLaunch, {args: ['--no-sandbox', '--disable-setuid-sandbox']});
 
         /* istanbul ignore next */
         if ((this.options && this.options.trace) || false)
