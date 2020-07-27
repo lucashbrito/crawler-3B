@@ -4,10 +4,9 @@
   "description": "Crawler3b",
   "main": "index.js",
   "scripts": {
-    "start": "tsc node dist/main.js",
     "start:watch": "nodemon",
-    "prestart:prod": "tsc",
-    "start:prod": "node dist/main.js",
+    "prestart": "tsc",
+    "start": "node dist/main.js",
     "test": "jest --config=jest.json",
     "test:watch": "jest --watch --config=jest.json",
     "test:coverage": "jest --config=jest.json --coverage --coverageDirectory=coverage"
